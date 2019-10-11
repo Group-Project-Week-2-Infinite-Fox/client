@@ -1,13 +1,14 @@
 <template>
   <div class="h-100">
 
+    <Nav></Nav>
     <Login @login-status="loginstatus"></Login>
-    
   </div>
 </template>
 
 <script>
 import Login from './components/Login'
+import Nav from './components/Nav'
 
 export default {
   data(){
@@ -18,7 +19,8 @@ export default {
     }
   },
   components : {
-    Login
+    Login,
+    Nav
   },
   methods:{
     loginstatus(loginstatus){
