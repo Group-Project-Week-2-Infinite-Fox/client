@@ -81,6 +81,7 @@ export default {
       console.log(loginStatus)
       this.login = loginStatus
       if (this.login === true) this.formType = 'mainBody'
+      this.fetchImageData()
     },
     logoutResponseReceived(loginStatus){
       this.login = loginStatus
@@ -90,13 +91,16 @@ export default {
     },
     ratedResponse(){
       this.msgRated++
+      this.fetchImageData()
     }, 
     verifyUpload(params){
       console.log(params)
       this.formType = params
+      this.fetchImageData()
     },
     toHome(params){
       this.formType = params
+      this.fetchImageData()
     }
   },
   created(){
