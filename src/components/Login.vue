@@ -13,6 +13,7 @@
             <input v-model="loginForm.password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-success">Login</button>
+          <button v-if="login" @click="sendRegisterBtnResponseToParent('register')" type="button" class="btn btn-primary">Register</button>
         </form>
       </div>
     </div>
@@ -39,24 +40,31 @@ export default {
     login(){
       axios({
         method:"post",
-        url:"http://localhost:3000/users/login",
+        url:"http://the-project-server.ricky-works.online/user/login",
         data : {
-          email : this.email,
-          password : this.password
+          email : this.loginForm.email,
+          password : this.loginForm.password
         }
       })
-      .then(data => {
+      .then(({data}) => {
         console.log(data);
+        localStorage.setItem("token", data.token)
+        this.loginStatus = true,
+        this.$emit("login-status", this.loginStatus)
       })
       .catch(err => {
+        console.log(err);
+        this.loginStatus = false,
         this.$emit("login-status", this.loginStatus)
-        // console.log(this.loginStatus);
         Swal.fire({
           title: 'Awwwwwwwww!',
           text: 'Wrong password/email.',
           type: 'error'
         })
       })
+    },
+    sendRegisterBtnResponseToParent(type){
+      this.$emit('registerBtnResponseFromChildNav',type)
     }
   }
 }
