@@ -2,6 +2,7 @@
   <div class="h-100">
 
     <Nav></Nav>
+    <Upload></Upload>
     <Login @login-status="loginstatus"></Login>
   </div>
 </template>
@@ -9,6 +10,9 @@
 <script>
 import Login from './components/Login'
 import Nav from './components/Nav'
+//----
+import Upload from './components/Upload'
+//---
 
 export default {
   data(){
@@ -20,7 +24,8 @@ export default {
   },
   components : {
     Login,
-    Nav
+    Nav,
+    Upload
   },
   methods:{
     loginstatus(loginstatus){
