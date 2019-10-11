@@ -1,0 +1,10 @@
+{
+  "name": "TheProject",
+  "short_name": "TheProject",
+  "theme_color": "#2196f3",
+  "background_color": "#2196f3",
+  "display": "fullscreen",
+  "orientation" : "potrait",
+  "scope": "/",
+  "start_url": "/"
+}

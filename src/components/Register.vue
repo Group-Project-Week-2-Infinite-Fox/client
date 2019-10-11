@@ -29,7 +29,7 @@ export default {
         email:"",
         password:""
       },
-      loginStatus: false
+      formType: "login"
     }
   },
   props : {
@@ -39,7 +39,7 @@ export default {
     register(){
       axios({
         method:"post",
-        url:"http://localhost:3000/users/register",
+        url:"http://the-project-server.ricky-works.online/user/register",
         data : {
           email : this.registerForm.email,
           password : this.registerForm.password
@@ -48,10 +48,10 @@ export default {
       .then(data => {
         console.log(data)
         this.loginStatus = true
-        this.$emit("login-status", this.loginStatus)
+        this.$emit("login-status", this.formType)
       })
       .catch(err => {
-        this.$emit("login-status", this.loginStatus)
+        // this.$emit("login-status", this.loginStatus)
         console.log(err);
         Swal.fire({
           title: 'Awwwwwwwww!',
