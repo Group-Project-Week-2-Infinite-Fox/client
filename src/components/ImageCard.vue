@@ -56,7 +56,10 @@ export default {
     giveRating(){
       Axios({
         method : 'post',
-        url: `http://the-project-server.ricky-works.online/file/rate/${String(this.imageid)}`
+        url: `http://the-project-server.ricky-works.online/file/rate/${String(this.imageid)}`,
+        data : {
+          rating : this.ratingValue
+        }
       })
       .then(({data}) => {
         this.$emit('responseRatedSuccessFromImageCard', data.msg)
