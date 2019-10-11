@@ -6,6 +6,7 @@
       :login-status="login"
       @logoutResponseFromChildNav="logoutResponseReceived"
       @uploadBtnResponseFromChildNav="uploadResponseReceived"
+      @toHomeFromNavResponse="toHome"
     ></Nav>
     <Login @login-status="loginStatusChange" @registerBtnResponseFromChildNav="registerResponseReceived" v-if="formType==='login'" ></Login>
     <Register v-else-if="formType==='register'"></Register>
@@ -92,6 +93,9 @@ export default {
     }, 
     verifyUpload(params){
       console.log(params)
+      this.formType = params
+    },
+    toHome(params){
       this.formType = params
     }
   },

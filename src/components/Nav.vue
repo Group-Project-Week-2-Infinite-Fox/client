@@ -1,7 +1,7 @@
 <template>
     <div class="mb-3">
         <nav class="navbar fixed-top navbar-expand-sm bg-light navbar-light">
-            <a class="navbar-brand main-title">The Project</a>
+            <a class="navbar-brand main-title" @click="toHomeFromNav()">The Project</a>
             <div class="ml-auto">
             <button v-if="loginStatus" @click="sendUploadBtnResponseToParent()" type="button" class="btn btn-info btn-sm">Upload</button>
             <button v-if="!loginStatus" @click="sendLoginBtnResponseToParent('login')" type="button" class="btn btn-primary btn-sm">Login</button>
@@ -33,6 +33,10 @@ export default {
         },
         sendUploadBtnResponseToParent(){
             this.$emit('uploadBtnResponseFromChildNav', "upload")
+        },
+        toHomeFromNav(){
+            console.log('adasdsa');
+            this.$emit('toHomeFromNavResponse', "mainBody")
         }
     }
 }

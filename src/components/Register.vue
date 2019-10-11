@@ -52,10 +52,11 @@ export default {
       })
       .catch(err => {
         // this.$emit("login-status", this.loginStatus)
-        console.log(err);
+        console.log(err.response);
+        // console.log(err);
         Swal.fire({
           title: 'Awwwwwwwww!',
-          text: err.message,
+          text: err.response.data[" email"] || err.response.data[" password"]  || "Error",
           type: 'error'
         })
       })

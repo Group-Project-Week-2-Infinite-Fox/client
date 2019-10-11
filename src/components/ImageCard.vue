@@ -16,7 +16,7 @@
             </select>
           </div>
           <button href="#" class="btn btn-danger">Vote!</button>
-          <button type="button" class="btn btn-secondary btn" disabled> <span><img src="https://image.flaticon.com/icons/svg/1040/1040230.svg" class="mb-1" style="width:15px;height:15px;"></span>{{rating.toFixed(1) || 0 }}</button>
+          <button type="button" class="btn btn-secondary btn" disabled> <span><img src="https://image.flaticon.com/icons/svg/1040/1040230.svg" class="mb-1" style="width:15px;height:15px;"></span>{{rating.toFixed(1)}}</button>
         </form>
         <div class="fb-share-button" 
             :data-href="sourcelink" 
